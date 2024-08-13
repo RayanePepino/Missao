@@ -7,15 +7,17 @@ const textoResultado = document.querySelector(".texto-resultado");
 const perguntas = [
     {
         enunciado: "Você presencia uma ação de cyberbullying. O que você faz sobre?",
+
         alternativas: [
             {
-                texto: "Reportar a situação a um responsável.",
+                texto:"Reportar a situação a um responsável.",
                 afirmacao: "Você é contra o Bullying porém prefere não se envolver diretamente delegando essa responsabilidade a uma autoridade que você julga competente."
             },
             {
-                texto:  "Tenta inibir o ato enquanto está ocorrendo.",
-                afirmacao: "Você é o tipo de pessoa que não se cala diante da injustiça e faz de tudo o que está ao seu alcance para preservar um ambiente saudável e sem discriminações."
-            }    
+                texto: "Tenta inibir o ato enquanto está ocorrendo.",
+                afirmacao:"Você é o tipo de pessoa que não se cala diante da injustiça e faz de tudo o que está ao seu alcance para preservar um ambiente saudável e sem discriminações."
+
+            }   
            
         ]
     },
@@ -48,8 +50,8 @@ const perguntas = [
         ]
     }  
 ];
-
-
+    
+    
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
@@ -64,15 +66,9 @@ function mostraAlternativas(){
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", function(){
-            atual++;
-            mostraPergunta();
-        });
-
-        caixaAlternativas.appendChild(botaoAlternativas);
-
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas)
     }
-
 }
 
 function respostaSelecionada(opcaoSelecionada){
@@ -81,5 +77,6 @@ function respostaSelecionada(opcaoSelecionada){
     atual++;
     mostraPergunta();
 }
+
 
 mostraPergunta();
