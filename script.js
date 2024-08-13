@@ -52,6 +52,7 @@ const perguntas = [
 
 let atual = 0;
 let perguntaAtual;
+let historiaFinal = "";
 
 function mostraPergunta(){
     perguntaAtual = perguntas[atual];
@@ -74,5 +75,11 @@ function mostraAlternativas(){
 
 }
 
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacao = opcaoSelecionada.afirmacoes;
+    historiaFinal = afirmacao;
+    atual++;
+    mostraPergunta();
+}
 
 mostraPergunta();
